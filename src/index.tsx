@@ -3,11 +3,16 @@ import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+// Error Page
+import { ErrorPage } from './ErrorPage';
 // UI Layout
 import { MainLayouts } from './layouts/MainLayouts';
 // Views & Pages
 import { Home } from './views/Home';
 import { About } from './views/About';
+import { ViewPost } from './views/posts/ViewPost';
+import { AddPost } from './views/posts/AddPost';
+import { EditPost } from './views/posts/EditPost';
 
 // ----------------------------------------------------------------------
 
@@ -18,7 +23,12 @@ const router = createBrowserRouter([
     children: [
       { path: '/', element: <Home /> },
       { path: 'about', element: <About /> },
+      { path: '/post/:id', element: <ViewPost /> },
+      { path: '/add_post', element: <AddPost /> },
+      { path: '/save_post', handle: () => alert('Save Post') },
+      { path: '/edit_post', element: <EditPost /> },
     ],
+    errorElement: <ErrorPage />,
   },
 ]);
 const root = ReactDOM.createRoot(

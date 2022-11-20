@@ -25,6 +25,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "jsonserver": "json-server db.json --watch --port 3001 --host 127.0.0.1",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -49,6 +50,7 @@
     "@commitlint/cli": "^17.2.0",
     "@commitlint/config-conventional": "^17.2.0",
     "autoprefixer": "^10.4.13",
+    "cross-var": "^1.1.0",
     "husky": "^8.0.2",
     "postcss": "^8.4.19",
     "tailwindcss": "^3.2.4"

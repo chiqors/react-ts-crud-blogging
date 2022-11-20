@@ -7,7 +7,7 @@ export const PostList = () => {
   const [error, setError] = useState<any>(null);
 
   useEffect(() => {
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch('http://127.0.0.1:3001/posts?_page=1&_limit=2')
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
@@ -26,7 +26,7 @@ export const PostList = () => {
       ) : error ? (
         <p>{error.message}</p>
       ) : (
-        posts.slice(0, 3).map((post) => <Post key={post.id} post={post} />)
+        posts.map((post) => <Post key={post.id} post={post} />)
       )}
     </div>
   );
