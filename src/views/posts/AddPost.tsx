@@ -1,10 +1,11 @@
-import axios from 'axios';
 import React from 'react';
-import { redirect } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { storePost } from '../../utils/PostUtils';
 
 export const AddPost = () => {
   const [title, setTitle] = React.useState('');
   const [body, setBody] = React.useState('');
+  const navigate = useNavigate();
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -15,11 +16,11 @@ export const AddPost = () => {
   };
 
   const onPostStore = async() => {
-    axios.post('http://localhost:3001/posts', {
+    storePost({
       title: title,
-      body: body,
+      body: body
     });
-    return redirect("/");
+    navigate('/');
   };
 
   return (

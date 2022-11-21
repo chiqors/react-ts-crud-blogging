@@ -7,3 +7,8 @@ export interface Post {
 export interface PostProps {
   post: Post;
 }
+
+export interface PostNoId {
+  title: string;
+  body: string;
+}

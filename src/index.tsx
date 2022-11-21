@@ -22,12 +22,10 @@ const router = createBrowserRouter([
     element: <MainLayouts />,
     children: [
       { path: '/', element: <Home /> }, 
-      { path: 'about', element: <About /> },
+      { path: '/about', element: <About /> },
       { path: '/post/:id', element: <ViewPost /> },
       { path: '/post/create', element: <AddPost /> },
       { path: '/post/edit/:id', element: <EditPost /> },
-      { path: '/post/update/:id', handle: () => alert('Update Post') },
-      { path: '/post/delete/:id', handle: () => alert('Delete Post') },
     ],
     errorElement: <ErrorPage />,
   },
