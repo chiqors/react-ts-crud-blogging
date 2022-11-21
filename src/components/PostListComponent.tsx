@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { parseLinkHeader } from '../utils/Helper';
-import { Post } from './PostComponent';
+import { PostComponent } from './PostComponent';
 import { PostWithUser } from '../types/Post';
 import axios from 'axios';
 
-export const PostList = () => {
+export const PostListComponent = () => {
   const [posts, setPosts] = useState<PostWithUser[]>([]);
   const [loadPage, setLoadPage] = useState("");
   const [loading, setLoading] = useState<boolean>(true);
@@ -40,7 +40,7 @@ export const PostList = () => {
       ) : error ? (
         <p>{error}</p>
       ) : (
-        posts.map((post) => <Post key={post.id} post={post} />)
+        posts.map((post) => <PostComponent key={post.id} post={post} />)
       )}
       {loadPage && (
         <button

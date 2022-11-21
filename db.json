@@ -57,6 +57,20 @@
       "userId": 1,
       "body": "comment 3",
       "created_at": "2022-01-01 00:02:00"
+    },
+    {
+      "postId": 5,
+      "userId": 1,
+      "body": "sdfsdfsd",
+      "created_at": "2022-11-21 18:13:26",
+      "id": 4
+    },
+    {
+      "postId": 5,
+      "userId": 1,
+      "body": "hdfhdfherge",
+      "created_at": "2022-11-21 18:13:35",
+      "id": 5
     }
   ],
   "users": [

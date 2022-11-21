@@ -3,7 +3,7 @@ import { PostWithUserProps } from '../types/Post';
 import { deletePost } from '../utils/PostUtils';
 import moment from 'moment';
 
-export const Post = ({ post }: PostWithUserProps) => {
+export const PostComponent = ({ post }: PostWithUserProps) => {
   const navigate = useNavigate();
 
   return (
@@ -64,4 +64,4 @@ export const Post = ({ post }: PostWithUserProps) => {
   );
 };
 
-export default Post;
+export default PostComponent;

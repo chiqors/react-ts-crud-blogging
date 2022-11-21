@@ -1,4 +1,5 @@
 import { User } from "./User";
+import { Post } from "./Post";
 
 export interface Comment {
   id: number;
@@ -15,6 +16,15 @@ export interface CommentNoId {
   created_at: string;
 }
 
+export interface CommentProps {
+  comment: Comment;
+}
+
+export interface CommentInputProps {
+  postId: number;
+  userId: number;
+}
+
 export interface CommentWithUser {
   id: number;
   postId: number;
@@ -22,4 +32,8 @@ export interface CommentWithUser {
   body: string;
   created_at: string;
   user: User;
+}
+
+export interface CommentWithUserProps {
+  comment: CommentWithUser;
 }

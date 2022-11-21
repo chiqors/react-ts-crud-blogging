@@ -1,5 +1,5 @@
 import React from 'react';
-import { PostList } from '../components/PostListComponent';
+import { PostListComponent } from '../components/PostListComponent';
 
 export const Home = () => {
   return (
@@ -17,7 +17,7 @@ export const Home = () => {
         </p>
 
         <div className="flex flex-col items-center justify-around max-w-4xl mt-6 sm:w-full">
-          <PostList />
+          <PostListComponent />
         </div>
       </main>
     </div>
