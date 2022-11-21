@@ -1,15 +1,7 @@
 import { Link } from 'react-router-dom';
+import { PostProps as PostType } from '../types/Post';
 
-interface PostProps {
-  post: {
-    id: number;
-    title: string;
-    body: string;
-    userId: number;
-  };
-}
-
-export const Post = ({ post }: PostProps) => {
+export const Post = ({ post }: PostType) => {
   return (
     <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-full mb-3">
       <h2 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">

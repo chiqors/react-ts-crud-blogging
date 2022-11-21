@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
 import './index.css';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, redirect, RouterProvider } from 'react-router-dom';
 // Error Page
 import { ErrorPage } from './ErrorPage';
 // UI Layout
@@ -21,12 +21,13 @@ const router = createBrowserRouter([
     path: '/',
     element: <MainLayouts />,
     children: [
-      { path: '/', element: <Home /> },
+      { path: '/', element: <Home /> }, 
       { path: 'about', element: <About /> },
       { path: '/post/:id', element: <ViewPost /> },
-      { path: '/add_post', element: <AddPost /> },
-      { path: '/save_post', handle: () => alert('Save Post') },
-      { path: '/edit_post', element: <EditPost /> },
+      { path: '/post/create', element: <AddPost /> },
+      { path: '/post/edit/:id', element: <EditPost /> },
+      { path: '/post/update/:id', handle: () => alert('Update Post') },
+      { path: '/post/delete/:id', handle: () => alert('Delete Post') },
     ],
     errorElement: <ErrorPage />,
   },
