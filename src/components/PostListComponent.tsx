@@ -2,11 +2,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { parseLinkHeader } from '../utils/Helper';
 import { Post } from './PostComponent';
-import { Post as PostType } from '../types/Post';
+import { PostWithUser } from '../types/Post';
 import axios from 'axios';
 
 export const PostList = () => {
-  const [posts, setPosts] = useState<PostType[]>([]);
+  const [posts, setPosts] = useState<PostWithUser[]>([]);
   const [loadPage, setLoadPage] = useState("");
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
@@ -14,7 +14,7 @@ export const PostList = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/posts?_page=1&_limit=3');
+        const response = await axios.get('http://localhost:3001/posts?_page=1&_limit=3&_sort=created_at&_order=desc&_expand=user');
         if (response.headers.link) {
           const links = parseLinkHeader(response.headers.link);
           setLoadPage(links.next);

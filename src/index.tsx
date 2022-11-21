@@ -13,6 +13,9 @@ import { About } from './views/About';
 import { ViewPost } from './views/posts/ViewPost';
 import { AddPost } from './views/posts/AddPost';
 import { EditPost } from './views/posts/EditPost';
+// Library
+import moment from 'moment';
+moment.locale('id');
 
 // ----------------------------------------------------------------------
 

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { updatePost } from '../../utils/PostUtils';
+import moment from 'moment';
 
 export const EditPost = () => {
   const [title, setTitle] = React.useState('');
@@ -35,6 +36,8 @@ export const EditPost = () => {
       id: parseInt(id?.toString() || '0'),
       title,
       body,
+      userId: 1,
+      created_at: moment().format('YYYY-MM-DD HH:mm:ss')
     })
     navigate('/');
   };

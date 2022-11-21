@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { storePost } from '../../utils/PostUtils';
+import moment from 'moment';
 
 export const AddPost = () => {
   const [title, setTitle] = React.useState('');
@@ -18,7 +19,9 @@ export const AddPost = () => {
   const onPostStore = async() => {
     storePost({
       title: title,
-      body: body
+      body: body,
+      userId: 1,
+      created_at: moment().format('YYYY-MM-DD HH:mm:ss')
     });
     navigate('/');
   };

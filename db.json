@@ -2,29 +2,77 @@
   "posts": [
     {
       "id": 1,
+      "userId": 1,
       "title": "Post 1",
-      "body": "content 1"
+      "body": "content 1 s dsfdsfisdjfhsdji hsdkjhsdjk dsuio fsdjkghkjad hsd hjsdajsdhguosaiush guisehgiusd hgiu huis ghiusr ghuis rhguisr hdfuighsdfuighedghtg5jodfgniuehg uioweuir hgerui erui ieru eirugh uierg eioru guieg  h heruiogheruiohgiuer gieuro huior gheruio goergheiorgheiorghroig herioghosdiagsio o sduio sdo ghsduiog hsdioghaosh",
+      "created_at": "2022-01-01 00:01:00"
     },
     {
       "id": 2,
+      "userId": 1,
       "title": "Post 2",
-      "body": "content 2"
+      "body": "content 2",
+      "created_at": "2022-01-02 00:02:00"
     },
     {
       "id": 3,
+      "userId": 1,
       "title": "Post 3",
-      "body": "content 3"
+      "body": "content 3",
+      "created_at": "2022-11-19 00:03:00"
     },
     {
       "id": 4,
+      "userId": 1,
       "title": "Post 4",
-      "body": "content 4"
+      "body": "content 4",
+      "created_at": "2022-11-20 00:04:00"
     },
     {
       "id": 5,
+      "userId": 1,
       "title": "Post 5",
-      "body": "content 5"
+      "body": "content 5",
+      "created_at": "2022-11-21 00:05:00"
     }
   ],
-  "comments": []
+  "comments": [
+    {
+      "id": 1,
+      "postId": 5,
+      "userId": 1,
+      "body": "comment 1",
+      "created_at": "2022-01-01 00:01:30"
+    },
+    {
+      "id": 2,
+      "postId": 5,
+      "userId": 1,
+      "body": "comment 2",
+      "created_at": "2022-01-01 00:01:45"
+    },
+    {
+      "id": 3,
+      "postId": 5,
+      "userId": 1,
+      "body": "comment 3",
+      "created_at": "2022-01-01 00:02:00"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "User 1",
+      "email": "test1@gm.com",
+      "password": "098f6bcd4621d373cade4e832627b4f6",
+      "created_at": "2022-01-01 00:01:00"
+    },
+    {
+      "id": 2,
+      "name": "User 2",
+      "email": "test2@gm.com",
+      "password": "098f6bcd4621d373cade4e832627b4f6",
+      "created_at": "2022-01-02 00:02:00"
+    }
+  ]
 }
