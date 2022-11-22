@@ -7,14 +7,16 @@ import axios from 'axios';
 
 export const PostListComponent = () => {
   const [posts, setPosts] = useState<PostWithUser[]>([]);
-  const [loadPage, setLoadPage] = useState("");
+  const [loadPage, setLoadPage] = useState('');
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string>('');
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/posts?_page=1&_limit=3&_sort=created_at&_order=desc&_expand=user');
+        const response = await axios.get(
+          'http://localhost:3001/posts?_page=1&_limit=3&_sort=created_at&_order=desc&_expand=user'
+        );
         if (response.headers.link) {
           const links = parseLinkHeader(response.headers.link);
           setLoadPage(links.next);
@@ -32,7 +34,10 @@ export const PostListComponent = () => {
 
   return (
     <div className="flex flex-wrap items-center justify-around mt-6 w-full">
-      <Link to="/post/create" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5">
+      <Link
+        to="/post/create"
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-5"
+      >
         Add Post
       </Link>
       {loading ? (

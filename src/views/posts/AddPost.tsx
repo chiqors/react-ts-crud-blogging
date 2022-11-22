@@ -16,12 +16,12 @@ export const AddPost = () => {
     setBody(e.target.value);
   };
 
-  const onPostStore = async() => {
+  const onPostStore = async () => {
     storePost({
       title: title,
       body: body,
       userId: 1,
-      created_at: moment().format('YYYY-MM-DD HH:mm:ss')
+      created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
     });
     navigate('/');
   };
@@ -54,7 +54,7 @@ export const AddPost = () => {
         ></textarea>
       </div>
       <div>
-        <button 
+        <button
           className="hover:shadow-form rounded-md bg-[#6A64F1] py-3 px-8 text-base font-semibold text-white outline-none"
           onClick={onPostStore}
         >

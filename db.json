@@ -79,6 +79,7 @@
       "name": "User 1",
       "email": "test1@gm.com",
       "password": "098f6bcd4621d373cade4e832627b4f6",
+      "status": "inactive",
       "created_at": "2022-01-01 00:01:00"
     },
     {
@@ -86,6 +87,7 @@
       "name": "User 2",
       "email": "test2@gm.com",
       "password": "098f6bcd4621d373cade4e832627b4f6",
+      "status": "inactive",
       "created_at": "2022-01-02 00:02:00"
     }
   ]

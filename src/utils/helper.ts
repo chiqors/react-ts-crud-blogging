@@ -11,4 +11,4 @@ export const parseLinkHeader = (linkHeader: any) => {
     parsedLinks[name] = url;
   });
   return parsedLinks;
-}
+};

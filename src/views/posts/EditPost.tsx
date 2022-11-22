@@ -21,7 +21,9 @@ export const EditPost = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get('http://localhost:3001/posts?id=' + id);
+        const response = await axios.get(
+          'http://localhost:3001/posts?id=' + id
+        );
         setTitle(response.data[0].title);
         setBody(response.data[0].body);
       } catch (error: any) {
@@ -31,14 +33,14 @@ export const EditPost = () => {
     fetchPosts();
   }, []);
 
-  const onPostUpdate = async() => {
+  const onPostUpdate = async () => {
     updatePost({
       id: parseInt(id?.toString() || '0'),
       title,
       body,
       userId: 1,
-      created_at: moment().format('YYYY-MM-DD HH:mm:ss')
-    })
+      created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
+    });
     navigate('/');
   };
 
@@ -72,7 +74,7 @@ export const EditPost = () => {
         ></textarea>
       </div>
       <div>
-        <button 
+        <button
           className="hover:shadow-form rounded-md bg-[#b3c41f] py-3 px-8 text-base font-semibold text-white outline-none"
           onClick={onPostUpdate}
         >

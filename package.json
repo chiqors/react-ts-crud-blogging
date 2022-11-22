@@ -28,6 +28,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "jsonserver": "json-server db.json --watch --port 3001 --host 127.0.0.1",
+    "prettier": "prettier --write .",
     "prepare": "husky install"
   },
   "eslintConfig": {
@@ -54,7 +55,10 @@
     "autoprefixer": "^10.4.13",
     "cross-var": "^1.1.0",
     "husky": "^8.0.2",
+    "json-server": "^0.17.1",
+    "json-server-auth": "^2.1.0",
     "postcss": "^8.4.19",
+    "prettier": "^2.7.1",
     "tailwindcss": "^3.2.4"
   }
 }

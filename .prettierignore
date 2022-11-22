@@ -1,4 +1,5 @@
 .husky
 dist
+build
 public
 node_modules
