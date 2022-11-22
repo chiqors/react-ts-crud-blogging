@@ -7,12 +7,15 @@ import { CommentInputComment } from '../../components/CommentInputComment';
 import { CommentWithUser } from '../../types/Comment';
 import { PostWithUser } from '../../types/Post';
 import { parseLinkHeader } from '../../utils/Helper';
+import moment from 'moment';
 
 export const ViewPost = () => {
   const [post, setPost] = useState<PostWithUser>();
   const [comments, setComments] = useState<CommentWithUser[]>([]);
   const [commentPage, setCommentPage] = useState('');
   const [loading, setLoading] = useState<boolean>(true);
+  const userLocalLogin = localStorage.getItem('userLogin');
+  const userLogin = JSON.parse(userLocalLogin || '{}');
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -44,7 +47,10 @@ export const ViewPost = () => {
     <>
       <div className="mx-auto w-full max-w-[550px] pt-5">
         <h1 className="text-3xl font-bold pb-5">{post?.title}</h1>
-        <p className="text-base text-[#6B7280]">{post?.body}</p>
+        <p className="text-base text-[#6B7280] mb-3">{post?.body}</p>
+        <p className="text-sm text-[#6B7280]">
+          Posted by {post?.user?.name} on {moment(post?.created_at).format('LL')}
+        </p>
         <button
           className="bg-[#F87171] text-white px-4 py-2 rounded-md mt-5"
           onClick={() => navigate(-1)}
@@ -57,7 +63,7 @@ export const ViewPost = () => {
         <h1 className="text-2xl font-bold pb-5">
           Comments ({comments.length})
         </h1>
-        <CommentInputComment postId={post?.id as number} userId={1} />
+        <CommentInputComment postId={post?.id as number} userId={userLogin.user.id} />
         <div className="flex flex-col space-y-5">
           {comments.map((comment) => (
             <CommentComponent key={comment.id} comment={comment} />

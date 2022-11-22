@@ -1,6 +1,10 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+  const userLocalLogin = localStorage.getItem('userLogin');
+  const userLogin = JSON.parse(userLocalLogin || '{}');
+  const navigate = useNavigate();
+  
   return (
     <nav className="bg-white border-gray-200 px-2 sm:px-4 py-2.5 dark:bg-gray-900">
       <div className="container flex flex-wrap items-center justify-between mx-auto">
@@ -48,14 +52,20 @@ export const Navbar = () => {
         </div>
         <div className="hidden w-full md:block md:w-auto" id="navbar-default">
           <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+            {Object.keys(userLogin).length !== 0 ? (
             <li>
               <button
                 type="button"
                 className="block px-2 py-1 text-gray-900 rounded-md hover:bg-gray-100 dark:text-gray-100 dark:hover:bg-gray-700"
+                onClick={() => {
+                  localStorage.removeItem('userLogin');
+                  navigate('/login');
+                }}
               >
                 Logout
               </button>
             </li>
+            ) : (
             <li>
               <Link
                 to="/login"
@@ -64,6 +74,7 @@ export const Navbar = () => {
                 Login
               </Link>
             </li>
+            )}
           </ul>
         </div>
       </div>

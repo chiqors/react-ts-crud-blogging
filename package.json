@@ -27,7 +27,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "jsonserver": "json-server db.json --watch --port 3001 --host 127.0.0.1",
+    "jsonserver": "json-server-auth db.json --watch --port 3001 --host 127.0.0.1",
     "prettier": "prettier --write .",
     "prepare": "husky install"
   },

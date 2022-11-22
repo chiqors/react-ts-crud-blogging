@@ -7,6 +7,8 @@ export const AddPost = () => {
   const [title, setTitle] = React.useState('');
   const [body, setBody] = React.useState('');
   const navigate = useNavigate();
+  const userLocalLogin = localStorage.getItem('userLogin');
+  const userLogin = JSON.parse(userLocalLogin || '{}');
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
@@ -17,10 +19,15 @@ export const AddPost = () => {
   };
 
   const onPostStore = async () => {
+    if (Object.keys(userLogin).length == 0) {
+      alert('Please login first!');
+      navigate('/login');
+      return;
+    }
     storePost({
       title: title,
       body: body,
-      userId: 1,
+      userId: userLogin.user.id,
       created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
     });
     navigate('/');

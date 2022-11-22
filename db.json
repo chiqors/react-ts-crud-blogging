@@ -34,6 +34,13 @@
       "title": "Post 5",
       "body": "content 5",
       "created_at": "2022-11-21 00:05:00"
+    },
+    {
+      "title": "sdfgsdgsdfgd",
+      "body": "sdgsdgdsf",
+      "userId": 3,
+      "created_at": "2022-11-22 22:07:43",
+      "id": 6
     }
   ],
   "comments": [
@@ -71,6 +78,20 @@
       "body": "hdfhdfherge",
       "created_at": "2022-11-21 18:13:35",
       "id": 5
+    },
+    {
+      "postId": 6,
+      "userId": 3,
+      "body": "heyyo",
+      "created_at": "2022-11-22 22:10:09",
+      "id": 6
+    },
+    {
+      "postId": 6,
+      "userId": 3,
+      "body": "sdfdsg",
+      "created_at": "2022-11-22 22:15:51",
+      "id": 7
     }
   ],
   "users": [
@@ -78,7 +99,7 @@
       "id": 1,
       "name": "User 1",
       "email": "test1@gm.com",
-      "password": "098f6bcd4621d373cade4e832627b4f6",
+      "password": "$2a$10$MLwd7engkobwgo8T9tyYE.BD.yFWdvYFCED1hO.yIYs4xKjnzgM22",
       "status": "inactive",
       "created_at": "2022-01-01 00:01:00"
     },
@@ -86,9 +107,16 @@
       "id": 2,
       "name": "User 2",
       "email": "test2@gm.com",
-      "password": "098f6bcd4621d373cade4e832627b4f6",
+      "password": "$2a$10$MLwd7engkobwgo8T9tyYE.BD.yFWdvYFCED1hO.yIYs4xKjnzgM22",
       "status": "inactive",
       "created_at": "2022-01-02 00:02:00"
+    },
+    {
+      "email": "fathoni105@gmail.com",
+      "password": "$2a$10$MLwd7engkobwgo8T9tyYE.BD.yFWdvYFCED1hO.yIYs4xKjnzgM22",
+      "name": "chiqo",
+      "status": "inactive",
+      "id": 3
     }
   ]
 }

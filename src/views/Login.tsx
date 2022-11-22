@@ -1,17 +1,24 @@
-import { ChangeEvent, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { ChangeEvent, FormEvent, useState } from 'react';
+import { Link, useNavigate, useOutletContext } from 'react-router-dom';
+import { authLogin } from '../utils/UserUtils';
 
 export const Login = () => {
   const [formData, setFormData] = useState({
     email: '', // required
     password: '', // required
   });
+  const navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleLogin = async () => {};
+  const handleLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const resp = await authLogin(formData);
+    localStorage.setItem('userLogin', JSON.stringify(resp.data));
+    return navigate('/');
+  };
 
   return (
     <div className="container">
@@ -37,6 +44,8 @@ export const Login = () => {
               <input
                 type="email"
                 onChange={handleChange}
+                name="email"
+                value={formData.email}
                 className="form-control
                 block
                 w-full
@@ -70,6 +79,8 @@ export const Login = () => {
               <input
                 type="password"
                 onChange={handleChange}
+                name="password"
+                value={formData.password}
                 className="form-control block
                 w-full
                 px-3

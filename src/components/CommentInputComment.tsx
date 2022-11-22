@@ -2,16 +2,27 @@ import React from 'react';
 import { storeComment } from '../utils/CommentUtils';
 import moment from 'moment';
 import { CommentInputProps } from '../types/Comment';
+import { useNavigate } from 'react-router-dom';
 
 export const CommentInputComment = ({ postId, userId }: CommentInputProps) => {
   const [comment, setComment] = React.useState<string>('');
+  const userLocalLogin = localStorage.getItem('userLogin');
+  const userLogin = JSON.parse(userLocalLogin || '{}');
+  const navigate = useNavigate();
+
   const onCommentStore = async () => {
+    if (Object.keys(userLogin).length == 0) {
+      alert('Please login first!');
+      navigate('/login');
+      return;
+    }
     storeComment({
       body: comment,
       postId,
-      userId,
+      userId: userLogin.user.id,
       created_at: moment().format('YYYY-MM-DD HH:mm:ss'),
     });
+    window.location.reload();
   };
 
   return (

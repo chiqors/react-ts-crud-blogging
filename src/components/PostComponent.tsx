@@ -1,10 +1,11 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { PostWithUserProps } from '../types/Post';
 import { deletePost } from '../utils/PostUtils';
 import moment from 'moment';
 
 export const PostComponent = ({ post }: PostWithUserProps) => {
-  const navigate = useNavigate();
+  const userLocalLogin = localStorage.getItem('userLogin');
+  const userLogin = JSON.parse(userLocalLogin || '{}');
 
   return (
     <article className="p-6 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 w-full mb-3">
@@ -43,12 +44,15 @@ export const PostComponent = ({ post }: PostWithUserProps) => {
           <span className="font-medium dark:text-white">{post.user.name}</span>
         </div>
         <div className="inline-flex items-end">
+          {userLogin.user.id === post.userId && (
           <Link
             to={`/post/edit/${post.id}`}
             className="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-yellow-600 border border-transparent rounded-lg active:bg-yellow-800 hover:bg-yellow-700 focus:outline-none focus:shadow-outline-yellow"
           >
             Edit
           </Link>
+          )}
+          {userLogin.user.id === post.userId && (
           <button
             className="px-4 py-2 ml-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-red-600 border border-transparent rounded-lg active:bg-red-800 hover:bg-red-700 focus:outline-none focus:shadow-outline-red"
             onClick={() => {
@@ -58,6 +62,7 @@ export const PostComponent = ({ post }: PostWithUserProps) => {
           >
             Delete
           </button>
+          )}
         </div>
       </div>
     </article>
