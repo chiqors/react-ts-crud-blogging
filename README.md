@@ -1,5 +1,4 @@
-# React CRUD for Tech Interview
-
+# React TS CRUD Blogging
 BlogPosting with jsonplaceholder
 
 ## Setup Instruction for Development
